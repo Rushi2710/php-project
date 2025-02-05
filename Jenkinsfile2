@@ -14,13 +14,13 @@ pipeline {
     stages {
         stage('git cloned') {
             steps {
-                git url:'https://github.com/akshu20791/php-project/', branch: "master"
+                git url:'https://github.com/Rushi2710/php-project/', branch: "master"
             }
         }
         stage('Build docker image') {
             steps {
                 script {
-                    sh 'docker build -t akshu20791/amdocsapril:v1 .'
+                    sh 'docker build -t rushi2710/amdocsapril:v1 .'
                     sh 'docker images'
                 }
             }
