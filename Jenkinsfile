@@ -31,14 +31,14 @@ pipeline {
             steps {
                 script {
                     def remoteHost = "ubuntu@172.31.33.193"
-                    def dockerrm = "docker rm -f My-first-containe2211 || true"
-                    def dockerCmd = "docker run -itd --name My-first-containe2211 -p 8083:80 rushi1027/akshatnewimg6july:v1"
+                    def dockerrm = "sudo docker rm -f My-first-containe2211 || true"
+                    def dockerCmd = "sudo docker run -itd --name My-first-containe2211 -p 8083:80 rushi1027/akshatnewimg6july:v1"
 
                     sshagent(['sshkeypair']) {
-                        sh """
-                            ssh -o StrictHostKeyChecking=no ${remoteHost} '${dockerrm}'
-                            ssh -o StrictHostKeyChecking=no ${remoteHost} '${dockerCmd}'
-                        """
+                        //change the private ip in below code
+                        // sh "docker run -itd --name My-first-containe2111 -p 8083:80 akshu20791/2febimg:v1"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.33.193 ${dockerrm}"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.33.193 ${dockerCmd}"
                     }
                 }
             }
